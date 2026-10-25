@@ -1,0 +1,86 @@
+{
+  "n_variants": 8184,
+  "n_genes": 42,
+  "n_pathogenic": 6049,
+  "n_benign": 2135,
+  "folds": 5,
+  "features": [
+    "plddt",
+    "plddt_window",
+    "contacts_10A",
+    "rel_position",
+    "blosum62",
+    "hydrophobicity_delta",
+    "abs_hydrophobicity_delta",
+    "volume_delta",
+    "abs_volume_delta",
+    "charge_change",
+    "in_domain",
+    "in_disordered_region",
+    "near_functional_site",
+    "involves_gly_or_pro",
+    "involves_cys"
+  ],
+  "cv": [
+    {
+      "model": "logistic_regression",
+      "split": "gene_held_out",
+      "roc_auc_mean": 0.8472705918184553,
+      "roc_auc_sd": 0.05252198218892818,
+      "pr_auc_mean": 0.9314112043407459,
+      "pr_auc_sd": 0.03514977993730636,
+      "roc_auc_pooled": 0.8536345063325543,
+      "pr_auc_pooled": 0.9354423969937543
+    },
+    {
+      "model": "gradient_boosting",
+      "split": "gene_held_out",
+      "roc_auc_mean": 0.8594831339879642,
+      "roc_auc_sd": 0.04021797118703109,
+      "pr_auc_mean": 0.9385681402376281,
+      "pr_auc_sd": 0.027901427241174823,
+      "roc_auc_pooled": 0.869777380123217,
+      "pr_auc_pooled": 0.9434138215315903
+    },
+    {
+      "model": "logistic_regression",
+      "split": "random",
+      "roc_auc_mean": 0.874580349701738,
+      "roc_auc_sd": 0.010317196347186674,
+      "pr_auc_mean": 0.9471182624910097,
+      "pr_auc_sd": 0.0047146035274809725,
+      "roc_auc_pooled": 0.8746280086553103,
+      "pr_auc_pooled": 0.9470151219171722
+    },
+    {
+      "model": "gradient_boosting",
+      "split": "random",
+      "roc_auc_mean": 0.9197381468906876,
+      "roc_auc_sd": 0.005713008497662684,
+      "pr_auc_mean": 0.9665285969968955,
+      "pr_auc_sd": 0.0024096646427353937,
+      "roc_auc_pooled": 0.919470305541435,
+      "pr_auc_pooled": 0.9662086711954383
+    }
+  ],
+  "baselines": [
+    {
+      "score": "blosum62",
+      "n": 8184,
+      "roc_auc": 0.6966175143432459,
+      "pr_auc": 0.8395661676689942
+    },
+    {
+      "score": "plddt",
+      "n": 8184,
+      "roc_auc": 0.7980360235283823,
+      "pr_auc": 0.9111015125775126
+    },
+    {
+      "score": "alphamissense",
+      "n": 8033,
+      "roc_auc": 0.931255570658229,
+      "pr_auc": 0.9716592597982735
+    }
+  ]
+}

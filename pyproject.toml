@@ -1,0 +1,30 @@
+[project]
+name = "variant-pathogenicity-explorer"
+version = "0.1.0"
+description = "Predict missense variant pathogenicity from UniProt, AlphaFold DB and ClinVar data"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["requests", "numpy", "pandas", "scikit-learn", "matplotlib"]
+
+[project.scripts]
+vpe = "vpe.cli:main"
+
+[tool.setuptools]
+packages = ["vpe"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "NPY"]
+ignore = ["E402"]  # matplotlib.use() must run before pyplot import in report.py
+
+[tool.ruff.lint.isort]
+known-first-party = ["vpe"]
+known-third-party = ["conftest"]
